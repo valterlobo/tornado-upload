@@ -20,6 +20,8 @@ class IndexHandler(tornado.web.RequestHandler):
 class UploadHandler(tornado.web.RequestHandler):
     async def post(self):
         fileinfo = self.request.files['file1'][0]
+        name = self.get_body_argument("name")
+        print("Name : %s" , name)
         #print ("fileinfo is %s", fileinfo)
         fname = fileinfo['filename']
         extn = os.path.splitext(fname)[1]
